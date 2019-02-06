@@ -2,7 +2,7 @@
 
 set $host=host
 set $user=user
-set $logPrefix="log prefix"
+
 
 
 touch console
@@ -19,7 +19,7 @@ fi
 
 
 tmux new-session -d -s "$USER" "$(pwd)/connectToConsoleSaveOutput.sh $host $user |tee -i -a $(pwd)/console" &
-tail -f -n 1 $(pwd)/console |while read log; do logger "$logPrefix - $log"; done &
+tail -f -n 1 $(pwd)/console |while read log; do logger "console_log - $log"; done &
 
 while true >> /dev/null ; do
 	sleep 5
@@ -27,7 +27,7 @@ while true >> /dev/null ; do
 	if ! ps -ef |grep "[t]mux new-session -d -s $USER $(pwd)/connectToConsoleSaveOutput.sh" > /dev/null
 		then
 		tmux new-session -d -s "$USER" "$(pwd)/connectToConsoleSaveOutput.sh raspberrypi pi |tee -i -a $(pwd)/console" &
-		tail -f -n 1 $(pwd)/console |while read log; do logger "$logPrefix - $log"; done &
+		tail -f -n 1 $(pwd)/console |while read log; do logger "console_log - $log"; done &
 	fi
 		
 done 

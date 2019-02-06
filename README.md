@@ -17,7 +17,7 @@ $ sudo yum install tmux expect
 1. Download or clone the files in this project.
 2. create conf file in rsyslog (change the name to whatever you want) - <br>
     ```
-    sudo nano /etc/rsyslog.d/\<log-conf-name\>.conf
+    sudo nano /etc/rsyslog.d/<log-conf-name>.conf
     ```
    with the following content (change user, group, log prefix, path to your system user and group and other preferences) - <br>
    ```

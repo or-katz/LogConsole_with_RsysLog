@@ -8,10 +8,6 @@ Ubuntu/Debian:<br>
 $ sudo apt update
 $ sudo apt install tmux expect
 ```
-Centos:<br>
-```
-$ sudo yum install tmux expect
-```
 
 ## how to use
 1. Download or clone the files in this project.
@@ -21,14 +17,9 @@ $ sudo yum install tmux expect
     ```
    with the following content (change user, group, log prefix, path to your system user and group and other preferences) - <br>
    ```
-   $FileOwner <user>
-   $FileCreateMode 0660
-   $FileGroup <group>
-   $template consoleLog, "<full_path>/log.log"
-   if $msg contains 'log_prefix' then ?consoleLog
-   & ~
-
-
+   $PrivDropToUser <user>
+   $PrivDropToGroup <group>
+   :msg,contains,"<log_prefix>" <ful_path>/log.log
    ```
 3. save the file and restart rsyslog - <br>
    ```
@@ -40,4 +31,5 @@ $ sudo yum install tmux expect
    ```
    $ nohup ./run.sh &
    ```
+6. attach to console by ```tmux attach-session -t "$USER"```
 

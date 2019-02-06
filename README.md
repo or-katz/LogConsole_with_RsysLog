@@ -28,10 +28,10 @@ $ sudo yum install tmux expect
    ```
    Centos:
    ```
-   $FileOwner or
+   $FileOwner <user>
    $FileCreateMode 0660
-   $FileGroup or
-   $template consoleLog, "/home/or/log.log"
+   $FileGroup <group>
+   $template consoleLog, "<ful_path>/log.log"
    if $msg contains 'console_log' then ?consoleLog
    & ~
    ```
@@ -44,5 +44,4 @@ $ sudo yum install tmux expect
    ```
    $ nohup ./run.sh &
    ```
-6. attach to console by ```tmux attach-session -t "$USER"```
-
+6. attach to the console by ```tmux attach-session -t "$USER"```

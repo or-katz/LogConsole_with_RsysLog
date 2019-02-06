@@ -27,7 +27,7 @@ while true >> /dev/null ; do
 	if ! ps -ef |grep "[t]mux new-session -d -s $USER $(pwd)/connectToConsoleSaveOutput.sh" > /dev/null
 		then
 		tmux new-session -d -s "$USER" "$(pwd)/connectToConsoleSaveOutput.sh raspberrypi pi |tee -i -a $(pwd)/console" &
-		tail -f -n 1 $(pwd)/console |while read log; do logger "MCU QA1 Console - $log"; done &
+		tail -f -n 1 $(pwd)/console |while read log; do logger "$logPrefix - $log"; done &
 	fi
 		
 done 

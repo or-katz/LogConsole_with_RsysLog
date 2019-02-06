@@ -21,10 +21,11 @@ $ sudo yum install tmux expect
     ```
    with the following content (change user, group, log prefix, path to your system user and group and other preferences) - <br>
    ```
-   $PrivDropToUser <user>
-   $PrivDropToGroup <group>
-   
-   :msg,contains,"<log_prefix> " <full_path>/log.log
+   $template testlog, "/home/or/log/log.log"
+   if $msg contains 'log_prefix' then ?testlog
+   & ~
+   $FileOwner or
+   $FileGroup or
    ```
 3. save the file and restart rsyslog - <br>
    ```

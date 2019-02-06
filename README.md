@@ -15,11 +15,11 @@ $ sudo apt install tmux expect
     ```
     sudo nano /etc/rsyslog.d/<log-conf-name>.conf
     ```
-   with the following content (change user, group, log prefix, path to your system user and group and other preferences) - <br>
+   with the following content (change user, group, path to your system user and group and other preferences) - <br>
    ```
    $PrivDropToUser <user>
    $PrivDropToGroup <group>
-   :msg,contains,"<log_prefix>" <ful_path>/log.log
+   :msg,contains,"console_log" <ful_path>/log.log
    ```
 3. save the file and restart rsyslog - <br>
    ```

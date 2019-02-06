@@ -21,8 +21,8 @@ $ sudo yum install tmux expect
     ```
    with the following content (change user, group, log prefix, path to your system user and group and other preferences) - <br>
    ```
-   $template testlog, "/home/or/log/log.log"
-   if $msg contains 'log_prefix' then ?testlog
+   $template consoleLog, "/home/or/log/log.log"
+   if $msg contains 'log_prefix' then ?consoleLog
    & ~
    $FileOwner or
    $FileGroup or

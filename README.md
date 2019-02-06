@@ -24,11 +24,11 @@ $ sudo yum install tmux expect
    $PrivDropToUser <user>
    $PrivDropToGroup <group>
    
-   :msg,contains,"<log_prefix> " <path>/log.log
+   :msg,contains,"<log_prefix> " <full_path>/log.log
    ```
 3. save the file and restart rsyslog - <br>
    ```
-   systemctl restart rsyslog.service
+   sudo systemctl restart rsyslog.service
    ```
 4. edit the file ```run.sh``` and change the ```host``` and ```user``` to the machine that you want to connect through SSH.
    change ```log prefix``` to the exact prefix that you define in the rsyslog conf file.

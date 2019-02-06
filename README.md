@@ -35,6 +35,10 @@ $ sudo yum install tmux expect
    if $msg contains 'console_log' then ?consoleLog
    & ~
    ```
+   if SELinux is enabled and you save the log outside ```/var/log``` you need to change the context of that folder as ```/var/log```:
+   ```
+   chcon --reference /var/log <path_of_log>
+   ```
 3. save the file and restart rsyslog -
    ```
    sudo systemctl restart rsyslog.service
